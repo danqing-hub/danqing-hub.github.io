@@ -1,0 +1,167 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>Hexo博客框架搭建 | Hexo</title><meta name="description" content="Hexo博客框架搭建"><meta name="keywords" content=""><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="preconnect" href="//cdn.jsdelivr.net"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Hexo博客框架搭建"><meta name="twitter:description" content="Hexo博客框架搭建"><meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png"><meta property="og:type" content="article"><meta property="og:title" content="Hexo博客框架搭建"><meta property="og:url" content="http://yoursite.com/2019/11/13/Hexo%E5%8D%9A%E5%AE%A2%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA/"><meta property="og:site_name" content="Hexo"><meta property="og:description" content="Hexo博客框架搭建"><meta property="og:image" content="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>const autoChangeMode = 'false'
+var t = Cookies.get("theme");
+if (autoChangeMode == '1'){
+const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+const isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+const isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+if (t === undefined){
+  if (isLightMode) activateLightMode()
+  else if (isDarkMode) activateDarkMode()
+  else if (isNotSpecified || hasNoSupport){
+    console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+    now = new Date();
+    hour = now.getHours();
+    isNight = hour < 6 || hour >= 18
+    isNight ? activateDarkMode() : activateLightMode()
+}
+} else if (t == 'light') activateLightMode()
+else activateDarkMode()
+
+
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
+
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="canonical" href="http://yoursite.com/2019/11/13/Hexo%E5%8D%9A%E5%AE%A2%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA/"><link rel="prev" title="Hexo博客部署到github" href="http://yoursite.com/2019/11/13/Hexo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0github/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://xxx/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  highlight_copy: 'false',
+  highlight_lang: 'true',
+  highlight_shrink: 'false',
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  bookmark: {
+    title: 'Snackbar.bookmark.title',
+    message_prev: 'Press',
+    message_next: 'to bookmark this page'
+  },
+  runtime_unit: 'days',
+  copyright: undefined,
+  copy_copyright_js: false,
+  ClickShowText: undefined,
+  medium_zoom: 'false',
+  Snackbar: undefined
+  
+}</script></head><body><div id="header"> <div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">Hexo</a></span><i class="fa fa-bars fa-fw toggle-menu pull_right close" aria-hidden="true"></i><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> List</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> Movie</span></a></li></ul></div></div></span><span class="pull_right" id="search_button"></span></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="lazyload avatar_img" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/Photo/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'"></div><div class="mobile_post_data"><div class="mobile_data_item is_center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">Articles</div><div class="length_num">3</div></a></div></div></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> List</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> Movie</span></a></li></ul></div></div></div><div id="mobile-sidebar-toc"><div class="toc_mobile_headline">Catalog</div><ol class="toc_mobile_items"><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#一、安装Node-js"><span class="toc_mobile_items-number">1.</span> <span class="toc_mobile_items-text">一、安装Node.js</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-5"><a class="toc_mobile_items-link" href="#1-下载Node-js"><span class="toc_mobile_items-number">1.0.0.1.</span> <span class="toc_mobile_items-text">1.下载Node.js</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-5"><a class="toc_mobile_items-link" href="#2-安装Node-js"><span class="toc_mobile_items-number">1.0.0.2.</span> <span class="toc_mobile_items-text">2.安装Node.js</span></a></li></ol></li></ol></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#二、安装HEXO框架"><span class="toc_mobile_items-number">2.</span> <span class="toc_mobile_items-text">二、安装HEXO框架</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-5"><a class="toc_mobile_items-link" href="#借助npm包管理器安装"><span class="toc_mobile_items-number">2.0.0.1.</span> <span class="toc_mobile_items-text">借助npm包管理器安装</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-5"><a class="toc_mobile_items-link" href="#根据cnpm安装hexo"><span class="toc_mobile_items-number">2.0.0.2.</span> <span class="toc_mobile_items-text">根据cnpm安装hexo</span></a></li></ol></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#三、根据hexo搭建博客"><span class="toc_mobile_items-number">2.1.</span> <span class="toc_mobile_items-text">三、根据hexo搭建博客</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#四、新建一个博客"><span class="toc_mobile_items-number">3.</span> <span class="toc_mobile_items-text">四、新建一个博客</span></a></li></ol></div></div><div id="body-wrap"><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true">     </i><div class="auto_open" id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、安装Node-js"><span class="toc-number">1.</span> <span class="toc-text">一、安装Node.js</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-下载Node-js"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">1.下载Node.js</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-安装Node-js"><span class="toc-number">1.0.0.2.</span> <span class="toc-text">2.安装Node.js</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、安装HEXO框架"><span class="toc-number">2.</span> <span class="toc-text">二、安装HEXO框架</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#借助npm包管理器安装"><span class="toc-number">2.0.0.1.</span> <span class="toc-text">借助npm包管理器安装</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#根据cnpm安装hexo"><span class="toc-number">2.0.0.2.</span> <span class="toc-text">根据cnpm安装hexo</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、根据hexo搭建博客"><span class="toc-number">2.1.</span> <span class="toc-text">三、根据hexo搭建博客</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、新建一个博客"><span class="toc-number">3.</span> <span class="toc-text">四、新建一个博客</span></a></li></ol></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png)"><div id="post-info"><div id="post-title"><div class="posttitle">Hexo博客框架搭建</div></div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> Created 2019-11-13<span class="post-meta__separator">|</span><i class="fa fa-history" aria-hidden="true"></i> Updated 2019-11-13</time><div class="post-meta-wordcount"><i class="fa fa-eye post-meta__icon" aria-hidden="true">       </i><span>Post View: </span><span id="busuanzi_value_page_pv"></span></div></div></div></div><div class="layout layout_post" id="content-inner">   <article id="post"><div class="article-container" id="post-content"><p>[toc]</p>
+<h2 id="一、安装Node-js"><a href="#一、安装Node-js" class="headerlink" title="一、安装Node.js"></a>一、安装Node.js</h2><h5 id="1-下载Node-js"><a href="#1-下载Node-js" class="headerlink" title="1.下载Node.js"></a>1.<a href="https://nodejs.org/en/" target="_blank" rel="noopener">下载Node.js</a></h5><p><img alt="image-20191113162439641" data-src="https://raw.githubusercontent.com/danqing-hub/images/master/image-20191113162439641.png" class="lazyload"></p>
+<h5 id="2-安装Node-js"><a href="#2-安装Node-js" class="headerlink" title="2.安装Node.js"></a>2.安装Node.js</h5><ul>
+<li><p>以root用户登录</p>
+<p><img alt="image-20191113140210261" data-src="https://raw.githubusercontent.com/danqing-hub/images/master/image-20191113140210261.png" class="lazyload"></p>
+</li>
+<li><p>把下载的文件解压</p>
+<p><code>tar -xvf node-v12.13.0-linux-x64.tar.xz</code></p>
+</li>
+<li><p>把解压的文件重命名为nodejs</p>
+<p><code>mv node-v12.13.0-linux-x64/ nodejs</code></p>
+</li>
+<li><p>把nodejs移动到到usr目录下</p>
+<p><code>mv nodejs/ /usr/</code></p>
+</li>
+<li><p>建立软连接，变为全局环境变量</p>
+<p><code>ln -s /usr/nodejs/bin/npm /usr/local/bin/</code></p>
+<p><code>ln -s /usr/nodejs/bin/node /usr/local/bin/</code></p>
+<p><img alt="image-20191113142229025" data-src="https://raw.githubusercontent.com/danqing-hub/images/master/image-20191113142229025.png" class="lazyload"></p>
+</li>
+<li><p>显示版本号则代表成功</p>
+</li>
+</ul>
+<h2 id="二、安装HEXO框架"><a href="#二、安装HEXO框架" class="headerlink" title="二、安装HEXO框架"></a>二、安装HEXO框架</h2><h5 id="借助npm包管理器安装"><a href="#借助npm包管理器安装" class="headerlink" title="借助npm包管理器安装"></a>借助npm包管理器安装</h5><ul>
+<li><p>切换镜像源为淘宝镜像（提升速度 ,不用的话速度非常的慢）</p>
+<p><code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code></p>
+<p><img alt="image-20191113144221478" data-src="https://raw.githubusercontent.com/danqing-hub/images/master/image-20191113144221478.png" class="lazyload"></p>
+</li>
+<li><p>建立软连接,使cnpm变为全局环境变量</p>
+<p><code>ln -s /usr/nodejs/bin/cnpm /usr/local/bin/</code>  </p>
+<p>要注意：此时的cnpm使nodejs的bin目录下的</p>
+</li>
+<li><p>查看安装cnpm是否成功（查看版本号）</p>
+<p><code>cnpm -v</code></p>
+<p>成功之后的图片</p>
+<p><img alt="image-20191113150548638" data-src="https://raw.githubusercontent.com/danqing-hub/images/master//image-20191113150548638.png" class="lazyload"></p>
+</li>
+</ul>
+<h5 id="根据cnpm安装hexo"><a href="#根据cnpm安装hexo" class="headerlink" title="根据cnpm安装hexo"></a>根据cnpm安装hexo</h5><ul>
+<li><p>安装        </p>
+<p>​    <code>cnpm install -g hexo-cli</code></p>
+</li>
+<li><p>建立软连接,使hexo变为全局变量</p>
+<p><code>ln -s /usr/nodejs/bin/hexo /usr/local/bin/</code></p>
+</li>
+<li><p>验证hexo是否配置和安装成功</p>
+<p><code>hexo -v</code></p>
+<p>安装成功后效果如下</p>
+<p><img alt="image-20191113151700563" data-src="https://raw.githubusercontent.com/danqing-hub/images/master/image-20191113151700563.png" class="lazyload"></p>
+</li>
+</ul>
+<h3 id="三、根据hexo搭建博客"><a href="#三、根据hexo搭建博客" class="headerlink" title="三、根据hexo搭建博客"></a>三、根据hexo搭建博客</h3><ul>
+<li><p>s一个合适的位置新建一个blog文件夹（位置可以随意）</p>
+<p><code>mkdir blog</code></p>
+</li>
+<li><p>进入blog文件夹</p>
+<p><code>cd blog</code></p>
+</li>
+<li><p>用管理员的命令初始化一个博客</p>
+<p><code>sudo hexo init</code></p>
+<p>可能需要3-5分钟的时间，耐心等待……</p>
+<p><img alt="image-20191113153424322" data-src="https://raw.githubusercontent.com/danqing-hub/images/master/image-20191113153424322.png" class="lazyload"></p>
+<p>这样hexo就安装完整了</p>
+<p>此时文件夹下会生成很多的文件</p>
+<p><img alt="image-20191113153752005" data-src="https://raw.githubusercontent.com/danqing-hub/images/master/image-20191113153752005.png" class="lazyload"></p>
+</li>
+<li><p>启动博客</p>
+<p><code>hexo s</code></p>
+<p>此时可以看到</p>
+<p><img alt="image-20191113154150451" data-src="https://raw.githubusercontent.com/danqing-hub/images/master/image-20191113154150451.png" class="lazyload"></p>
+</li>
+</ul>
+<p>  在浏览器中输入localhost:4000</p>
+<p>  <img alt="image-20191113154055890" data-src="https://raw.githubusercontent.com/danqing-hub/images/master/image-20191113154055890.png" class="lazyload"></p>
+<h2 id="四、新建一个博客"><a href="#四、新建一个博客" class="headerlink" title="四、新建一个博客"></a>四、新建一个博客</h2><ul>
+<li><p>新建一个博客，名为框架博客</p>
+<p><code>hexo n &quot;博客框架&quot;</code></p>
+<p>以下为新建博客的路径</p>
+<p><img alt="image-20191113155401837" data-src="https://raw.githubusercontent.com/danqing-hub/images/master/image-20191113155401837.png" class="lazyload"></p>
+<p>可以对博客生成的博客添加你需要的内容(可以用一些支持markdown的编辑器）</p>
+</li>
+<li><p>修改完要生成的博客后，重新来到bolg文件下</p>
+</li>
+<li><p>清空数据</p>
+<p><code>hexo clean</code></p>
+</li>
+<li><p>对新建的博客生成魔板的样式</p>
+<p><code>hexo g</code></p>
+</li>
+<li><p>启动博客</p>
+<p><code>hexo s</code></p>
+<p><img alt="image-20191113165133428" data-src="https://raw.githubusercontent.com/danqing-hub/images/master/image-20191113165133428.png" class="lazyload"></p>
+<p>*<em>可以看到已经在原来的基础上又重新增加了一个博客框架 *</em></p>
+</li>
+</ul>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined" target="_blank" rel="noopener">John Doe</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://yoursite.com/2019/11/13/Hexo%E5%8D%9A%E5%AE%A2%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA/">http://yoursite.com/2019/11/13/Hexo%E5%8D%9A%E5%AE%A2%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><a class="reward-button"><i class="fa fa-qrcode"></i> Donate<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="lazyload post-qr-code__img" src="/img/wechat.jpg"><div class="post-qr-code__desc">微信</div></li><li class="reward-item"><img class="lazyload post-qr-code__img" src="/img/alipay.jpg"><div class="post-qr-code__desc">支付寶</div></li></ul></div></a></div><nav class="pagination_post" id="pagination"><div class="prev-post pull-full"><a href="/2019/11/13/Hexo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0github/"><img class="prev_cover lazyload" data-src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" onerror="onerror=null;src='/img/404.jpg'"><div class="label">Previous Post</div><div class="prev_info"><span>Hexo博客部署到github</span></div></a></div></nav></div></div><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2018 - 2019 By John Doe</div><div class="framework-info"><span>Driven </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="Read Mode"></i><i class="fa fa-plus" id="font_plus" title="Increase font size"></i><i class="fa fa-minus" id="font_minus" title="Decrease font size"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="Traditional Chinese and Simplified Chinese Conversion" target="_self">繁</a><i class="darkmode fa fa-moon-o" id="darkmode" title="Dark Mode"></i></div><div id="rightside-config-show"><div id="rightside_config" title="Setting"><i class="fa fa-cog" aria-hidden="true"></i></div><i class="fa fa-list-ul close" id="mobile-toc-button" title="Table of Contents" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="Back to top" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="/js/tw_cn.js"></script><script>translateInitilization()
+</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script></body></html>
